@@ -1,7 +1,4 @@
     <nav class="navbar navbar-expand-sm navbar-light bg-light">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav4" aria-controls="navbarNav4" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
         <a class="navbar-brand" href="#">My Diary</a>
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav">
@@ -18,5 +15,11 @@
                     <a class="nav-link" href="#">setting</a>
                 </li>
             </ul>
+            <!-- Authentication -->
+            <form method="POST" action="{{ route('logout') }}">
+                @csrf
+                <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                            this.closest('form').submit();">logout</a>
+            </form>
         </div>
     </nav>
