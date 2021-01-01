@@ -1,0 +1,60 @@
+version: "3.8"
+volumes:
+  mydiary-db-volume:
+    name: mydiary-db-volume
+  mydiary-socket:
+    name: mydiary-socket
+
+networks:
+  mydiary-network:
+    name: mydiary-network
+
+services:
+  mydiary:
+    build:
+      context: .
+      dockerfile: ./docker/php/Dockerfile
+    container_name: mydiary
+    volumes:
+      - mydiary-socket:/var/run/php-fpm
+      - ./application:/var/www/
+    restart: always
+    networks:
+      - mydiary-network
+    environment:
+      - DB_CONNECTION=pgsql
+      - DB_HOST=mydiary-db
+      - DB_PORT=5432
+      - DB_DATABASE=mydiary
+      - DB_USERNAME=postgres
+      - DB_PASSWORD=
+
+  mydiary-web:
+    build:
+      context: .
+      dockerfile: ./docker/nginx/Dockerfile
+    container_name: mydiary-web
+    ports:
+      - 8082:80
+    volumes:
+      - mydiary-socket:/var/run/php-fpm
+      - ./application:/var/www/
+    networks:
+      - mydiary-network
+    restart: always
+
+  mydiary-db:
+    image: postgres:13.1
+    container_name: mydiary-db
+    networks:
+      - mydiary-network
+    ports:
+      - 65432:5432
+    volumes:
+      - mydiary-db-volume:/var/lib/postgresql/data
+    environment:
+      TZ: "Asia/Tokyo"
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD:
+      POSTGRES_DB: mydiary
+      POSTGRES_HOST_AUTH_METHOD: trust
