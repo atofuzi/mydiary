@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Diary;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class DiaryController extends Controller
 {
@@ -14,6 +15,25 @@ class DiaryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+    public function index()
+    {
+        $user_id = Auth::id();
+        $data["diaries"] = Diary::where('user_id', '=', $user_id)
+            ->orderBy('diary_date', 'desc')
+            ->limit(5)
+            ->get();
+
+        foreach ($data["diaries"] as $key => $diary) {
+            if (mb_strlen($diary->contents) > 25) {
+                $data["diaries"][$key]['contents'] = mb_substr($diary->contents, 0, 24) . '...';
+            }
+        }
+
+        return view('home', $data);
+    }
+
+
     public function register(Request $request)
     {
         $user_id = Auth::id();

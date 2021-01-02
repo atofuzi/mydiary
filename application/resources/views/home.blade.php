@@ -8,7 +8,19 @@
 @section('content')
 <div class="header-img"></div>
 <div class="container">
-
+    <h2><i class="fas fa-book-open" style="padding-right: 10px;"></i>最近の日記</h2>
+    <div class="diary-box">
+        <table>
+            <tbody>
+                @foreach ($diaries as $diary)
+                <tr>
+                    <td>{{$diary->diary_date}}</td>
+                    <td>{{$diary->contents}}</td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
 </div>
 @endsection
 

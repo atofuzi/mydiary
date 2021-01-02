@@ -18,14 +18,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home', function () {
-    return view('home');
-});
 
 Route::get('/write', function () {
     return view('write');
 });
 
+Route::get('/home', [DiaryController::class, 'index']);
 Route::get('/record', [DiaryController::class, 'show']);
 Route::post('/register', [DiaryController::class, 'register']);
 Route::get('/edit/{id}', [DiaryController::class, 'edit']);
