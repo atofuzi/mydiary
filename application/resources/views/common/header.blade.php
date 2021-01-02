@@ -3,13 +3,13 @@
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/') }}">home</a>
+                    <a class="nav-link" href="{{ url('/home') }}">home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url('/write') }}">write</a>
                 </li>
                 <li class=" nav-item">
-                    <a class="nav-link" href="#">record</a>
+                    <a class="nav-link" href="{{ url('/record') }}">record</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">setting</a>

@@ -26,7 +26,10 @@ Route::get('/write', function () {
     return view('write');
 });
 
+Route::get('/record', [DiaryController::class, 'show']);
 Route::post('/register', [DiaryController::class, 'register']);
+Route::get('/edit/{id}', [DiaryController::class, 'edit']);
+Route::post('/update/{id}', [DiaryController::class, 'update']);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

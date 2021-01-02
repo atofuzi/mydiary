@@ -18,5 +18,6 @@ class Diary extends Model
         'user_id',
         'diary_date',
         'contents',
+        'pic1',
     ];
 }
