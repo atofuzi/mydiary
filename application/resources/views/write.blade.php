@@ -6,7 +6,7 @@
 @parent
 @endsection
 @section('content')
-<div class="container">
+<div class="main-contents">
     <h2>日記を書く</h2>
     <form method="POST" action="{{ url('/register') }}" enctype="multipart/form-data">
         @csrf

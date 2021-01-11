@@ -1,14 +1,14 @@
+/*=====================
+* 共通スタイル
+*=====================*/
+/* 見出し */
 h2 {
     position: relative;
     padding: 1.5rem 1rem;
     margin-bottom: 40px;
     font-size: 22px;
 }
-
-h3 {
-    padding: 0 0 5px 0;
-    font-size: 18px;
-}
+/* 見出しh2の下線のスタイル */
 h2:after {
     position: absolute;
     bottom: 0;
@@ -34,6 +34,61 @@ h2:after {
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
 }
+
+h3 {
+    padding: 0 0 5px 0;
+    font-size: 18px;
+}
+
+/*　コンテンツ幅 */
+.main-contents {
+    width: 980px; /* 980px固定(一般的な横幅)*/
+    margin: 0 auto; /*　コンテンツを中央に配置 */
+}
+/*======================
+* ヘッダーナビゲーション
+=======================*/
+.header {
+    width: 100%; /* 幅を画面いっぱいに設定*/
+    display: flex; /* ヘッダーナビゲーション全体を横並びにする */
+    align-items: center; /* 各アイテムの高さを中央揃えにする */
+    -webkit-justify-content: flex-start;
+    justify-content: flex-start;
+}
+
+/* タイトル */
+.header-title {
+    font-size: 24px; /* タイトルのフォントサイズ */
+    padding: 10px; /* タイトルの余白 */
+}
+
+/* ナビゲーション */
+.header-nav {
+    display: flex; /* ナビゲーションの各メニューを横並びにする */
+}
+
+/* ナビゲーションの各アイテム */
+.header-nav-item {
+    padding: 10px; /* 左右上下の余白 */
+    font-size: 18px; /* 文字サイズ */
+    color: rgb(95, 95, 95); /* 文字カラー */
+}
+
+/* 各アイテムにマウスが乗っかったときのエフェクト */
+.header-nav-item:hover {
+    color: #000;
+}
+
+/* 右寄せにしているアイテム */
+.header-nav-right-item {
+    margin-left: auto; /* 左の余白を目一杯とることで結果的に右寄せにしている */
+    margin-right: 10px; /* 右の余白 */
+}
+
+/*======================
+* ヘッダー画像
+=======================*/
+
 .header-img {
     background-image: url("../image/header.jpg");
     background-repeat: no-repeat;
@@ -43,30 +98,37 @@ h2:after {
     height: 450px;
 }
 
+/*======================
+* 日記記録・編集画面
+=======================*/
+/* inputボックスの余白 */
 .diary-input {
     padding: 5px;
     margin: 10px 0;
 }
-
+/* 日付エリア */
 .diary-input-date {
     width: 50%;
     background-color: lavenderblush;
 }
-
+/* 登録ボタンの余白 */
 .diary-input-register {
     padding: 5px 20px;
 }
-
+/* 入力エリア */
 .diary-input-contents {
     width: 100%;
     background-color: lavenderblush;
 }
 
+/*========  画像エリア  =========*/
+/* 画像プレビューのサイズ */
 .pic-main {
     width: 50%;
     padding: 5px 0px;
 }
 
+/* 画像プレビーのドロップ＆ドロップ(背景) */
 .area-drop-main {
     display: inline-block;
     width: 100%;
@@ -79,6 +141,7 @@ h2:after {
     box-sizing: border-box;
 }
 
+/* 画像プレビーの入力エリア(背景の上に透明にして被せている) */
 .input-area {
     opacity: 0;
     width: 100%;
@@ -89,6 +152,7 @@ h2:after {
     position: absolute;
 }
 
+/* 画像プレビューを表示するエリア */
 .img-area {
     width: 100%;
     max-height: 100%;
@@ -98,28 +162,38 @@ h2:after {
     position: absolute;
 }
 
+/*======================
+* 日記一覧（リスト）
+=======================*/
+/* 一覧の余白と下線 */
 .list {
     padding: 15px 0;
     border-bottom: 2px dashed rgb(255, 180, 205);
 }
+/* リストの一行に写真と文章を横並びにするためのflexbox */
 .list-wrap {
     display: flex;
     width: 100%;
 }
+/* リストで表示する画像のサイズ */
 .list-img {
     width: 30%;
 }
+/* リストので表示する文章の余白とサイズ */
 .list-content {
     padding: 0 10px;
     width: 70%;
 }
-
+/* リストにマウスが乗ったのきエフェクト */
 .list-link:hover {
     cursor: pointer;
     text-decoration: none;
     color: rgb(136, 136, 136);
 }
 
+/*======================
+* ホーム（home）
+=======================*/
 .diary-box {
     border: 2px dotted #eaa8bf; /* 線の太さ・種類・色 */
     margin: 30px 20px; /* 外側の余白 上下・左右 */

@@ -6,7 +6,7 @@
 @parent
 @endsection
 @section('content')
-<div class="container">
+<div class="main-contents">
     <h2><i class="far fa-clipboard" style=" padding-right: 10px"></i>日記一覧</h2>
     @foreach ($diaries as $diary)
     <a href="edit/{{ $diary->id }}" class="list-link">

@@ -7,7 +7,7 @@
 @endsection
 @section('content')
 <div class="header-img"></div>
-<div class="container">
+<div class="main-contents">
     <h2><i class="fas fa-book-open" style="padding-right: 10px;"></i>最近の日記</h2>
     <div class="diary-box">
         <table>
