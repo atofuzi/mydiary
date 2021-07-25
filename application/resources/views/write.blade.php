@@ -8,7 +8,7 @@
 @section('content')
 <div class="main-contents">
     <h2>日記を書く</h2>
-    <form method="POST" action="{{ url('/register') }}" enctype="multipart/form-data">
+    <form method="POST" action="{{ url('/diary-register') }}" enctype="multipart/form-data">
         @csrf
         <input type="date" id="diary-date" class="diary-input diary-input-date" name="diary_date" value=""><br>
         <textarea class="diary-input diary-input-contents" name="contents" rows="15" cols="40"></textarea><br>

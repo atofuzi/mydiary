@@ -25,7 +25,7 @@ Route::get('/write', function () {
 
 Route::get('/home', [DiaryController::class, 'index']);
 Route::get('/record', [DiaryController::class, 'show']);
-Route::post('/register', [DiaryController::class, 'register']);
+Route::post('/diary-register', [DiaryController::class, 'diaryRegister']);
 Route::get('/edit/{id}', [DiaryController::class, 'edit']);
 Route::post('/update/{id}', [DiaryController::class, 'update']);
 

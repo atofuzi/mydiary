@@ -34,7 +34,7 @@ class DiaryController extends Controller
     }
 
 
-    public function register(Request $request)
+    public function diaryRegister(Request $request)
     {
         $user_id = Auth::id();
         //pathを格納
